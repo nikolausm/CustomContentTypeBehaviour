@@ -15,6 +15,19 @@ namespace CustomContentTypeBehaviour
 			get { return (string)base["ContentType"]; }
 			set { base["ContentType"] = value; }
 		}
+		
+		protected override ConfigurationPropertyCollection Properties =>
+			new ConfigurationPropertyCollection 
+			{
+				new ConfigurationProperty(
+					"ContentType",
+					typeof(string), 
+					"application/xml", 
+					null, 
+					null,
+					ConfigurationPropertyOptions.IsRequired
+				)
+			};
 
 		public ChangeContentTypeExtensionElement()
 		{
